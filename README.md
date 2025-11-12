@@ -6,6 +6,10 @@
 ## Halaman Komentar 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a04cc177-02c1-4f78-bbc8-92b38996741c" />
 
+## komentar dari admin
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/67bbcfd6-5859-49fb-a3f1-98f55ffc5ab5" />
+
+
 Aplikasi web sederhana untuk mengelola dan menampilkan berita yang dibuat menggunakan Laravel 12. Aplikasi ini dikembangkan untuk tujuan pembelajaran mahasiswa dalam memahami konsep MVC (Model-View-Controller), ORM (Object-Relational Mapping), dan routing di Laravel.
 
 ## 📋 Daftar Isi
