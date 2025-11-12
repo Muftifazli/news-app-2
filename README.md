@@ -1,8 +1,12 @@
 # 📰 Aplikasi Berita (News App)
+## Mufti Fazli - 4523210067 news-app
+## Halaman Utama 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/c106a89a-5caa-4feb-aacb-3ba86196ebf1" />
+
+## Halaman Komentar 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a04cc177-02c1-4f78-bbc8-92b38996741c" />
 
 Aplikasi web sederhana untuk mengelola dan menampilkan berita yang dibuat menggunakan Laravel 12. Aplikasi ini dikembangkan untuk tujuan pembelajaran mahasiswa dalam memahami konsep MVC (Model-View-Controller), ORM (Object-Relational Mapping), dan routing di Laravel.
-
-> 📚 **[Lihat Semua Dokumentasi](docs/README.md)** | 📰 **[NewsResource Docs](docs/NewsResource.md)** | 👤 **[WartawanResource Docs](docs/WartawanResource.md)**
 
 ## 📋 Daftar Isi
 
@@ -15,7 +19,6 @@ Aplikasi web sederhana untuk mengelola dan menampilkan berita yang dibuat menggu
 - [Cara Kerja Routing](#cara-kerja-routing)
 - [Model dan Relasi](#model-dan-relasi)
 - [Controller](#controller)
-- [Filament Admin Panel](#-filament-admin-panel)
 - [Panduan Pengembangan](#panduan-pengembangan)
 - [Referensi Laravel](#referensi-laravel)
 
@@ -26,7 +29,6 @@ Aplikasi Berita adalah sistem manajemen konten sederhana yang memungkinkan:
 - Melihat detail berita lengkap dengan informasi wartawan
 - Menampilkan komentar pada setiap berita
 - Mengelola data wartawan sebagai penulis berita
-- **Admin panel dengan Filament untuk manajemen data (CRUD)**
 
 Aplikasi ini dibangun dengan fokus pada pemahaman konsep dasar Laravel dan best practices dalam pengembangan web modern.
 
@@ -36,14 +38,12 @@ Aplikasi ini dibangun dengan fokus pada pemahaman konsep dasar Laravel dan best 
 |-----------|-------|------------|
 | **PHP** | ^8.2 | Bahasa pemrograman server-side |
 | **Laravel Framework** | ^12.0 | Framework PHP MVC |
-| **Filament** | ^3.x | Admin Panel & CRUD Generator |
 | **Composer** | Latest | Dependency manager untuk PHP |
 | **NPM** | Latest | Package manager untuk JavaScript |
 | **Vite** | Latest | Build tool untuk frontend assets |
 | **MySQL/PostgreSQL** | Latest | Database relasional |
 
 ### Package Laravel yang Digunakan:
-- **Filament PHP** - Admin panel untuk manajemen data (CRUD)
 - **Laravel Tinker** - REPL untuk testing dan debugging
 - **Laravel Pint** - Code style fixer
 - **Laravel Sail** - Docker development environment
@@ -468,108 +468,6 @@ public function show(News $news)
 - `$news->load()` → Lazy eager loading untuk load relasi
 - Data dikirim ke view untuk ditampilkan
 
-## 🎛 Filament Admin Panel
-
-Aplikasi ini dilengkapi dengan **Filament Admin Panel** untuk memudahkan manajemen data berita dan wartawan tanpa perlu coding tambahan. Filament menyediakan interface CRUD (Create, Read, Update, Delete) yang modern dan user-friendly.
-
-### Mengakses Admin Panel
-
-```
-URL: http://localhost:8000/admin
-```
-
-Setelah setup, login menggunakan kredensial admin yang telah dibuat.
-
-### Fitur Admin Panel
-
-#### 1. **Dashboard**
-- Overview statistik aplikasi
-- Quick access ke semua resource
-
-#### 2. **News Management** 📰
-- **Create:** Form untuk membuat berita baru dengan Rich Text Editor
-- **Read:** Tabel data berita dengan search & filter
-- **Update:** Edit berita yang sudah ada
-- **Delete:** Hapus berita (single atau bulk)
-
-**Dokumentasi Lengkap:** [📄 NewsResource Documentation](docs/NewsResource.md)
-
-#### 3. **Wartawan Management** 👤
-- **Create:** Form untuk menambah wartawan baru
-- **Read:** Tabel data wartawan dengan search & sort
-- **Update:** Edit data wartawan
-- **Delete:** Hapus wartawan (single atau bulk)
-
-**Dokumentasi Lengkap:** [📄 WartawanResource Documentation](docs/WartawanResource.md)
-
-### Resource yang Tersedia
-
-| Resource | Model | Fitur |
-|----------|-------|-------|
-| **NewsResource** | `News` | Manajemen berita dengan Rich Editor, relasi wartawan |
-| **WartawanResource** | `Wartawan` | Manajemen data wartawan/jurnalis |
-
-### Quick Start Guide
-
-#### Membuat Berita Baru
-
-1. Login ke admin panel `/admin`
-2. Klik menu **📰 News** di sidebar
-3. Klik tombol **"+ Create News"**
-4. Isi form:
-   - Pilih Wartawan
-   - Tulis Judul
-   - Tulis Ringkasan
-   - Tulis Isi (dengan Rich Editor)
-5. Klik **"Create"**
-
-#### Mengelola Wartawan
-
-1. Klik menu **👤 Wartawans** di sidebar
-2. Klik **"+ Create Wartawan"**
-3. Isi Nama dan Email
-4. Klik **"Create"**
-
-### Setup Admin User (First Time)
-
-Jika belum ada admin user, buat dengan Tinker:
-
-```bash
-php artisan tinker
-```
-
-```php
-$user = new App\Models\User();
-$user->name = 'Admin';
-$user->email = 'admin@news-app.com';
-$user->password = bcrypt('password');
-$user->save();
-```
-
-Atau buat dengan seeder di `database/seeders/DatabaseSeeder.php`.
-
-### Customization
-
-Filament Resource bisa di-customize sesuai kebutuhan:
-- Menambah field baru di form
-- Menambah kolom di tabel
-- Menambah filter & search
-- Menambah actions custom
-- Mengubah icon dan label
-
-Lihat dokumentasi lengkap untuk tutorial customization.
-
-### Keuntungan Menggunakan Filament
-
-✅ **Cepat:** CRUD otomatis tanpa banyak coding  
-✅ **Modern UI:** Interface yang clean dan responsive  
-✅ **Validation:** Built-in validation untuk semua field  
-✅ **Searchable:** Search otomatis di tabel data  
-✅ **Sortable:** Sort kolom dengan klik header  
-✅ **Bulk Actions:** Delete multiple records sekaligus  
-✅ **Rich Editor:** WYSIWYG editor untuk konten berita  
-✅ **Relasi:** Handle relasi antar model dengan mudah  
-
 ## 🚀 Panduan Pengembangan
 
 ### Menambah Fitur Baru
@@ -647,29 +545,17 @@ Gunakan Laravel Pint untuk merapikan code:
 
 ## 📚 Referensi Laravel
 
-### Dokumentasi Resmi Laravel
+### Dokumentasi Resmi
 - [Laravel 11.x Documentation](https://laravel.com/docs/11.x) - Dokumentasi lengkap Laravel
 - [Routing](https://laravel.com/docs/11.x/routing) - Panduan routing
 - [Eloquent ORM](https://laravel.com/docs/11.x/eloquent) - Database ORM
 - [Blade Templates](https://laravel.com/docs/11.x/blade) - Template engine
 - [Migrations](https://laravel.com/docs/11.x/migrations) - Database migrations
 
-### Dokumentasi Filament Admin Panel
-- [Filament Documentation](https://filamentphp.com/docs) - Dokumentasi lengkap Filament
-- [Filament Resources](https://filamentphp.com/docs/3.x/panels/resources/getting-started) - Membuat CRUD Resources
-- [Filament Forms](https://filamentphp.com/docs/3.x/forms/installation) - Form builder
-- [Filament Tables](https://filamentphp.com/docs/3.x/tables/installation) - Table builder
-- [Heroicons](https://heroicons.com) - Icon library untuk Filament
-
-### Dokumentasi Resource Aplikasi Ini
-- [📄 NewsResource Documentation](docs/NewsResource.md) - Panduan lengkap NewsResource
-- [📄 WartawanResource Documentation](docs/WartawanResource.md) - Panduan lengkap WartawanResource
-
 ### Tutorial & Learning Resources
 - [Laravel Bootcamp](https://bootcamp.laravel.com) - Tutorial interaktif
 - [Laracasts](https://laracasts.com) - Video tutorial Laravel (gratis & berbayar)
 - [Laravel News](https://laravel-news.com) - Berita dan tips Laravel
-- [Filament Tricks](https://filamentphp.com/community) - Community tips Filament
 
 ### Konsep Penting untuk Dipelajari
 
@@ -680,7 +566,6 @@ Gunakan Laravel Pint untuk merapikan code:
 5. **Relationships** - One to Many, Many to Many, dll
 6. **Migrations** - Version control untuk database
 7. **Seeders & Factories** - Generate data dummy untuk testing
-8. **Filament Resources** - Admin panel CRUD dengan form & table builder
 
 ## 📝 Catatan Tambahan
 
